@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMW & M Performance | Concessionária Exclusiva</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+
+        /* Cabeçalho */
+        header {
+            background-color: #020617;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: #38bdf8;
+        }
+
+        /* Destaque Central (Hero BMW) */
+        .hero {
+            position: relative;
+            height: 70vh;
+            background: linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.95)), 
+                        url('https://images.unsplash.com/photo-1555215695-3004980ad54e?w=1600&auto=format&fit=crop') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-content h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .btn-hero {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: #0284c7;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-hero:hover {
+            background-color: #0369a1;
+            transform: scale(1.05);
+        }
+
+        /* Container do Catálogo */
+        .container {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 1rem;
+        }
+
+        .titulo-secao {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Grid dos Cards */
+        .grid-carros {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .card-carro {
+            background-color: #1e293b;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #334155;
+            transition: transform 0.3s ease;
+        }
+
+        .card-carro:hover {
+            transform: translateY(-8px);
+        }
+
+        .foto-principal {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+
+        .galeria-miniaturas {
+            display: flex;
+            gap: 6px;
+            padding: 8px;
+            background-color: #0f172a;
+        }
+
+        .galeria-miniaturas img {
+            width: 33.33%;
+            height: 65px;
+            object-fit: cover;
+            border-radius: 6px;
+            cursor: pointer;
+            opacity: 0.7;
+        }
+
+        .galeria-miniaturas img:hover {
+            opacity: 1;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .preco {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #38bdf8;
+            margin-bottom: 1rem;
+        }
+
+        /* Botões do Card */
+        .botoes-acao {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .btn-detalhes, .btn-contato {
+            width: 100%;
+            padding: 0.85rem;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            transition: 0.2s;
+        }
+
+        .btn-detalhes {
+            background-color: #334155;
+            color: white;
+        }
+
+        .btn-detalhes:hover {
+            background-color: #475569;
+        }
+
+        .btn-contato {
+            background-color: #22c55e;
+            color: white;
+            text-decoration: none;
+        }
+
+        .btn-contato:hover {
+            background-color: #16a34a;
+        }
+
+        /* --- ESTILOS DA JANELA MODAL (POPUP) --- */
+        .modal-overlay {
+            display: none; /* Escondido por padrão */
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-conteudo {
+            background-color: #1e293b;
+            padding: 2.5rem;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 600px;
+            border: 2px solid #38bdf8;
+            position: relative;
+        }
+
+        .modal-conteudo h2 {
+            color: #38bdf8;
+            margin-bottom: 1rem;
+        }
+
+        .modal-conteudo ul {
+            margin-top: 1rem;
+            margin-left: 1.5rem;
+            color: #cbd5e1;
+            line-height: 1.8;
+        }
+
+        /* Botão Fechar do Modal */
+        .btn-fechar {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: transparent;
+            color: #ef4444;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>BMW M-STORE</h1>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Puro Prazer de Dirigir</h2>
+            <a href="#estoque" class="btn-hero">Ver Modelos em Estoque</a>
+        </div>
+    </section>
+
+    <div class="container" id="estoque">
+        <h2 class="titulo-secao">Veículos Disponíveis</h2>
+        <main class="grid-carros">
+
+            <article class="card-carro">
+                <img id="img-1" class="foto-principal" src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800" alt="BMW M4">
+                <div class="galeria-miniaturas">
+                    <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400" onclick="trocarImagem('img-1', this.src)">
+                    <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=400" onclick="trocarImagem('img-1', this.src)">
+                </div>
+                <div class="card-body">
+                    <h3>BMW M4 Competition</h3>
+                    <div class="preco">R$ 790.000</div>
+                    <div class="botoes-acao">
+                        <button class="btn-detalhes" onclick="abrirModal('BMW M4 Competition', 'R$ 790.000', '<li>Motor 3.0 Bi-Turbo</li><li>510 cavalos de potência</li><li>0 a 100 km/h em 3.9s</li><li>Bancos em couro Merino</li><li>Freios M de Carbono-Cerâmica</li>')">Ver Mais Detalhes</button>
+                        <a href="https://wa.me/5500999999999" class="btn-contato" target="_blank">Negociar no WhatsApp</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card-carro">
+                <img id="img-2" class="foto-principal" src="https://images.unsplash.com/photo-1520050206274-a1ae44613e6d?w=800" alt="BMW X6 M">
+                <div class="galeria-miniaturas">
+                    <img src="https://images.unsplash.com/photo-1520050206274-a1ae44613e6d?w=400" onclick="trocarImagem('img-2', this.src)">
+                    <img src="https://images.unsplash.com/photo-1584345604476-8ec5e12e42dd?w=400" onclick="trocarImagem('img-2', this.src)">
+                </div>
+                <div class="card-body">
+                    <h3>BMW X6 M Competition</h3>
+                    <div class="preco">R$ 1.150.000</div>
+                    <div class="botoes-acao">
+                        <button class="btn-detalhes" onclick="abrirModal('BMW X6 M Competition', 'R$ 1.150.000', '<li>Motor 4.4 V8 Bi-Turbo</li><li>625 cavalos de potência</li><li>Tração Integral M xDrive</li><li>Rodas aro 22</li><li>Sistema de som Bowers & Wilkins</li>')">Ver Mais Detalhes</button>
+                        <a href="https://wa.me/5500999999999" class="btn-contato" target="_blank">Negociar no WhatsApp</a>
+                    </div>
+                </div>
+            </article>
+
+        </main>
+    </div>
+
+    <div id="janela-modal" class="modal-overlay">
+        <div class="modal-conteudo">
+            <button class="btn-fechar" onclick="fecharModal()">X</button>
+            <h2 id="modal-titulo">Nome do Carro</h2>
+            <h3 id="modal-preco" style="color: #fff;">Preço</h3>
+            <p style="margin-top: 15px; color: #94a3b8;">Principais Equipamentos:</p>
+            <ul id="modal-lista-detalhes">
+                </ul>
+        </div>
+    </div>
+
+    <script>
+        // Função para trocar a imagem da miniatura
+        function trocarImagem(idPrincipal, novaSrc) {
+            document.getElementById(idPrincipal).src = novaSrc;
+        }
+
+        // Função para abrir o Popup com os dados dinâmicos
+        function abrirModal(nome, preco, detalhes) {
+            document.getElementById('modal-titulo').innerText = nome;
+            document.getElementById('modal-preco').innerText = preco;
+            document.getElementById('modal-lista-detalhes').innerHTML = detalhes;
+            
+            // Muda o estilo de 'none' para 'flex', fazendo a janela aparecer
+            document.getElementById('janela

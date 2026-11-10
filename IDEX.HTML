@@ -1,47 +1,170 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport"
-         content="width=device-width, initial-scale=1.0">
-        <title>blog</title>
-        <style>
-            header{
-                background-color: #251C5E;
-                color: #FFFFFF;
-                text-align: center;
-                max-width: 800px;
-                margin: 0 auto;
-                padding:  16px;
-                border: 5px solid #183C63
-            }        
-                main{
-                    background-color: #fcfcfc;
-                    color: #183C63;
-                    max-width: 800px;
-                    margin: 0 auto;
-                    padding: 16px;
-                    display: flex;
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucas Tec - O Seu Blog de Tecnologia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Cabeçalho */
+        header {
+            background: linear-gradient(135deg, #0d47a1, #1e88e5);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Navegação */
+        nav {
+            background-color: #1565c0;
+            display: flex;
+            justify-content: center;
+            padding: 0.8rem 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #bbdefb;
+        }
+
+        /* Layout Principal */
+        .container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 20px;
+        }
+
+        /* Artigos */
+        .post {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border-left: 5px solid #1e88e5;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .post h2 {
+            color: #0d47a1;
+            margin-bottom: 10px;
+        }
+
+        .post .date {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .post a.read-more {
+            display: inline-block;
+            margin-top: 15px;
+            color: #1e88e5;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .post a.read-more:hover {
+            text-decoration: underline;
+        }
+
+        /* Barra Lateral */
+        aside {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            height: fit-content;
+        }
+
+        aside h3 {
+            color: #0d47a1;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 5px;
+        }
+
+        .profile img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto 10px auto;
+            background-color: #bbdefb;
+        }
+
+        .profile p {
+            font-size: 0.95rem;
+            text-align: center;
+            color: #555;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #0d47a1;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 40px;
+        }
+
+        /* Responsividade para telas menores */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
             }
-            img{
-                width: 80px;
-                height: 80px;
-            }
-        </style>
-    </head>
-    <body>
-        <header>.
-            
-            <h1>meu blog de carro</h1>
-            <p>vou falar sobre motores de carros </p>
-        </header>
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Lucas Tec</h1>
+        <p>Explorando o futuro da tecnologia e inovação</p>
+    </header>
+
+    <nav>
+        <a href="#">Início</a>
+        <a href="#">Artigos</a>
+        <a href="#">Tutoriais</a>
+        <a href="#">Sobre Mim</a>
+    </nav>
+
+    <div class="container">
         <main>
-          <img src="" alt="">
-               <h2>meuprimeiro post</h2>
-             </div>
-            <p>por: Lucas cavalcante</p>
-            <p>Boas-vindas ao meu novo blog! aqui vou comportilhar dicas de como arrumar coisa do motor de carros </p>
-            </div>
-        </main>
-    </body>
-    </html>
+            <article class="post">
+                <h2>O Impacto da Inteligência Artificial em 2026</h2>
+                <div class="date">Publicado em 10 de Novembro de 2026 por Lucas</div>
+                <p
